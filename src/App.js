@@ -7,6 +7,7 @@ import './App.css';
 import { HomePage } from 'pages/HomePage';
 import ShopPage from 'pages/Shop';
 import { Header } from 'components/Header';
+import { SignInAndSignUpPage } from 'pages/SignIn-SignUp';
 
 const HatsPage = (props) => {
 	console.log(props);
@@ -26,6 +27,7 @@ export function App() {
 				<Route exact path='/' component={HomePage} />
 				<Route path='/hats' component={HatsPage} />
 				<Route path='/shop' component={ShopPage} />
+				<Route path='/signin' component={SignInAndSignUpPage} />
 			</Switch>
 		</div>
 	);
