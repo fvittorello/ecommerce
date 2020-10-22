@@ -8,7 +8,7 @@ import { HomePage } from 'pages/HomePage';
 import ShopPage from 'pages/Shop';
 import { SignInAndSignUpPage } from 'pages/SignIn-SignUp';
 import { Header } from 'components/Header';
-import { auth } from 'firebase/firebase.utils';
+import { auth, createUserProfileDocument } from 'firebase/firebase.utils';
 
 const HatsPage = (props) => {
 	console.log(props);
@@ -31,10 +31,8 @@ class App extends React.Component {
 	unsubscribeFromAuth = null;
 
 	componentDidMount() {
-		this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-			this.setState({ currentUser: user });
-
-			console.log(user);
+		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+			createUserProfileDocument(user);
 		});
 	}
 
