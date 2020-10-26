@@ -9,19 +9,11 @@ import './App.css';
 import { HomePage } from 'pages/HomePage';
 import ShopPage from 'pages/Shop';
 import { SignInAndSignUpPage } from 'pages/SignIn-SignUp';
+import Checkout from 'pages/Checkout';
 import Header from 'components/Header';
 import { auth, createUserProfileDocument } from 'firebase/firebase.utils';
 import { setCurrentUser } from 'redux/user/user.actions';
 import { selectCurrentUser } from 'redux/user/user.selector';
-
-const HatsPage = (props) => {
-	console.log(props);
-	return (
-		<div>
-			<h1>Hats page</h1>
-		</div>
-	);
-};
 
 class App extends React.Component {
 	constructor(props) {
@@ -63,8 +55,8 @@ class App extends React.Component {
 				<Header />
 				<Switch>
 					<Route exact path='/' component={HomePage} />
-					<Route path='/hats' component={HatsPage} />
 					<Route path='/shop' component={ShopPage} />
+					<Route exact path='/checkout' component={Checkout} />
 					<Route
 						exact
 						path='/signin'
