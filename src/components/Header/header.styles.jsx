@@ -1,11 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
-const OptionContainerStyles = css`
-	padding: 10px 15px;
-	cursor: pointer;
-	border-radius: 5px;
-`;
 
 export const HeaderContainer = styled.div`
 	height: 70px;
@@ -32,16 +26,11 @@ export const OptionsContainer = styled.div`
 `;
 
 export const OptionLink = styled(Link)`
-	${OptionContainerStyles}
+	padding: 10px 15px;
+	cursor: pointer;
+	border-radius: 5px;
 
-	${OptionContainerStyles}:hover {
-		background: #c4c4c444;
-	}
-`;
-export const OptionDiv = styled.div`
-	${OptionContainerStyles}
-
-	${OptionContainerStyles}:hover {
+	&:hover {
 		background: #c4c4c444;
 	}
 `;
