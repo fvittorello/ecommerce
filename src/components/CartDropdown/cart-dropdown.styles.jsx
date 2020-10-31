@@ -1,4 +1,7 @@
-.cart-dropdown {
+import styled from 'styled-components';
+import { CustomButton } from 'components/CustomButton';
+
+export const CartDropdownContainer = styled.div`
 	position: absolute;
 	width: 240px;
 	height: 340px;
@@ -10,14 +13,18 @@
 	top: 80px;
 	right: 60px;
 	z-index: 5;
-}
+`;
 
-.empty-message {
+export const CartDropdownButton = styled(CustomButton)`
+	margin-top: auto;
+`;
+
+export const EmptyMessageContainer = styled.span`
 	font-size: 18px;
 	margin: 50px auto;
-}
+`;
 
-.cart-items {
+export const CartItemsContainer = styled.div`
 	height: 240px;
 	display: flex;
 	flex-direction: column;
@@ -29,8 +36,4 @@
 	&::-webkit-scrollbar {
 		display: none;
 	}
-}
-
-button {
-	margin-top: auto;
-}
+`;
