@@ -3,7 +3,9 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import './App.css';
+import { auth, createUserProfileDocument } from 'firebase/firebase.utils';
+import { setCurrentUser } from 'redux/user/user.actions';
+import { selectCurrentUser } from 'redux/user/user.selector';
 
 // Components
 import { HomePage } from 'pages/HomePage';
@@ -11,9 +13,9 @@ import ShopPage from 'pages/Shop';
 import { SignInAndSignUpPage } from 'pages/SignIn-SignUp';
 import Checkout from 'pages/Checkout';
 import Header from 'components/Header';
-import { auth, createUserProfileDocument } from 'firebase/firebase.utils';
-import { setCurrentUser } from 'redux/user/user.actions';
-import { selectCurrentUser } from 'redux/user/user.selector';
+
+// Styles
+import './App.css';
 
 class App extends React.Component {
 	constructor(props) {
@@ -34,14 +36,14 @@ class App extends React.Component {
 				const userRef = await createUserProfileDocument(userAuth);
 
 				userRef.onSnapshot((snapShot) => {
-					this.props.setCurrentUser({
+					setCurrentUser({
 						id: snapShot.id,
 						...snapShot.data(),
 					});
 				});
-			} else {
-				setCurrentUser(userAuth);
 			}
+
+			setCurrentUser(userAuth);
 		});
 	}
 
