@@ -7,7 +7,6 @@ import { CustomButton } from 'components/CustomButton';
 import { signUpStart } from 'redux/user/user.actions';
 
 // Styles
-// import './sign-up.styles.scss';
 import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
 const SignUp = ({ signUpStart }) => {
